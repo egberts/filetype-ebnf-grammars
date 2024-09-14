@@ -26,6 +26,7 @@ def init_regex() -> dict:
     patterns[0] = {'name': 'EBNF', 'pattern': '::-'}
     patterns[1] = {'name': 'PEG', 'pattern': 'definition'}
     patterns[2] = {'name': 'BNF', 'pattern': r'\s*=\s*'}  # BNF, Parsimonious
+    patterns[2] = {'name': 'Bison Output', 'pattern': r'\s*:\s*'}  # bison -o <output>
     patterns[3] = {'name': 'Ford PEG', 'pattern': r'\s\<\-\s'}  # Ford [2004] Bryan Ford, Parsing Expression Grammars: A Recognition-Based Syntactic Foundation. ACM SIGPLAN Symposium on Principles of Programming Languages (POPL), 2004.
     patterns[4] = {'name': 'Marpa:R2 SLIF-DSL', 'pattern': ':\w'}  # SLIF-DSL, scanless Interface Domain-specific Language (Marpa::R2)
     patterns[5] = {'name': 'JANET', 'pattern': r'^\(\s*def\s'}  # JANET (Lpeg, REBOL/Red)
@@ -35,7 +36,10 @@ def init_regex() -> dict:
     patterns[9] = {'name': 'Python PEG', 'pattern': r'\s\w\n\s*;'}  # Python-variant (Ford 2004)
     patterns[10] = {'name': 'Python PEG', 'pattern': r'\s\w\[\w*\]:s'}  # Python-internal PEG 
     patterns[11] = {'name': 'Arepeggio PEG', 'pattern': r'^\s*[&]?\w*\s*\<\-\s'}  # Arepeggio, Peg.py
-    patterns[11] = {'name': 'textX', 'pattern': r'^\s*\w+:(\n|(\s+))\s+\w'}  # textM
+    patterns[12] = {'name': 'textX', 'pattern': r'^\s*\w+:(\n|(\s+))\s+\w'}  # textM
+    patterns[13] = {'name': 'DHParser DSL', 'pattern': r'\s§[A-Za-z]'}  # DHParser
+    patterns[14] = {'name': 'bncf', 'pattern': r'^\s*\-\-[\s\w]*'}  # BNCF https://github.com/BNFC/bnfc
+    patterns[15] = {'name': 'bncf', 'pattern': r'^\s*\{\-'}  # BNCF https://github.com/BNFC/bnfc
 
     for idx in range(0, len(patterns)):
         myflags = re.MULTILINE
