@@ -35,6 +35,7 @@ def init_regex() -> dict:
     patterns[9] = {'name': 'Python PEG', 'pattern': r'\s\w\n\s*;'}  # Python-variant (Ford 2004)
     patterns[10] = {'name': 'Python PEG', 'pattern': r'\s\w\[\w*\]:s'}  # Python-internal PEG 
     patterns[11] = {'name': 'Arepeggio PEG', 'pattern': r'^\s*[&]?\w*\s*\<\-\s'}  # Arepeggio, Peg.py
+    patterns[11] = {'name': 'textX', 'pattern': r'^\s*\w+:(\n|(\s+))\s+\w'}  # textM
 
     for idx in range(0, len(patterns)):
         myflags = re.MULTILINE
